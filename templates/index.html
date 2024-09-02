@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vehicle Routing Problem</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1 style="font-weight: 1000; font-size: 50px">
+      Vehicle Routing Problem Interface
+    </h1>
+    <header
+      style="display: flex; justify-content: space-between; align-items: center"
+    >
+      <div>
+        <a href="/">Home</a>
+        <a href="/trucks">View All Trucks</a>
+        <a href="/warehouses">View All Warehouses</a>
+        <a href="/demands">View All Demands</a>
+      </div>
+      {% if 'username' in session %}
+      <div class="profile">
+        <span>Welcome, {{ session['username'] }}</span>
+        <a href="/logout">Logout</a>
+      </div>
+      {% else %}
+      <div class="profile">
+        <a href="/login">Login</a>
+        <a href="/signup">Sign Up</a>
+      </div>
+      {% endif %}
+    </header>
+
+    <div class="forms-container">
+      <div class="form-section">
+        <h2>Add New Truck</h2>
+        <form action="/add_truck" method="post">
+          Truck ID: <input type="number" name="TruckID" required /><br />
+          Capacity: <input type="number" name="Capacity" required /><br />
+          AC:
+          <select name="AC">
+            <option value="True">Yes</option>
+            <option value="False">No</option></select
+          ><br />
+          Current Warehouse ID:
+          <input type="number" name="CurrentWarehouseID" required /><br />
+          <input type="submit" value="Add Truck" />
+        </form>
+      </div>
+      <div class="form-section">
+        <h2>Add New Warehouse</h2>
+        <form action="/add_warehouse" method="post">
+          Warehouse ID:
+          <input type="number" name="WarehouseID" required /><br />
+          X Coordinate: <input type="number" name="X" required /><br />
+          Y Coordinate: <input type="number" name="Y" required /><br />
+          <input type="submit" value="Add Warehouse" />
+        </form>
+      </div>
+      <div class="form-section">
+        <h2>Add New Demand</h2>
+        <form action="/add_demand" method="post">
+          Demand ID: <input type="number" name="DemandID" required /><br />
+          Source ID: <input type="number" name="SourceID" required /><br />
+          Destination ID:
+          <input type="number" name="DestinationID" required /><br />
+          AC Required:
+          <select name="ACRequired">
+            <option value="True">Yes</option>
+            <option value="False">No</option></select
+          ><br />
+          Priority:
+          <select name="Priority">
+            <option value="high">High</option>
+            <option value="low">Low</option></select
+          ><br />
+          Quantity: <input type="number" name="Quantity" required /><br />
+          <input type="submit" value="Add Demand" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

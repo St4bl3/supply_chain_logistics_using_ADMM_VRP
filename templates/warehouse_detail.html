@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Warehouse Details</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="/">Home</a>
+      <a href="/trucks">View All Trucks</a>
+      <a href="/warehouses">View All Warehouses</a>
+      <a href="/demands">View All Demands</a>
+    </header>
+
+    <h1>Warehouse Details</h1>
+    <h2>Trucks at Warehouse</h2>
+    <table>
+      <tr>
+        <th>Truck ID</th>
+        <th>Capacity</th>
+        <th>AC</th>
+      </tr>
+      {% for index, truck in trucks.iterrows() %}
+      <tr>
+        <td>{{ truck['TruckID'] }}</td>
+        <td>{{ truck['Capacity'] }}</td>
+        <td>{{ truck['AC'] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <h2>Demands from this Warehouse</h2>
+    <table>
+      <tr>
+        <th>Demand ID</th>
+        <th>Destination ID</th>
+        <th>AC Required</th>
+        <th>Priority</th>
+        <th>Quantity</th>
+      </tr>
+      {% for index, demand in demands.iterrows() %}
+      <tr>
+        <td>{{ demand['DemandID'] }}</td>
+        <td>{{ demand['DestinationID'] }}</td>
+        <td>{{ demand['ACRequired'] }}</td>
+        <td>{{ demand['Priority'] }}</td>
+        <td>{{ demand['Quantity'] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

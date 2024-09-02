@@ -1,0 +1,148 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  padding-top: 60px; /* Add top padding to push content below the fixed header */
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: left;
+  position: fixed; /* Keep the header fixed at the top */
+  top: 0;
+  left: 0;
+  right: 0; /* Ensure the header spans the full width */
+  height: 50px; /* Specify a fixed height for the header */
+  display: flex; /* Enable Flexbox */
+  justify-content: space-between; /* Space between nav links and profile section */
+  align-items: center; /* Center vertically */
+}
+
+header a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile span {
+  margin-right: 10px;
+}
+
+h1,
+h2 {
+  color: #444;
+  text-align: center;
+}
+
+/* Styling for forms and table elements */
+form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 20px auto; /* Center form on the page */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  background-color: #5c85d6;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #4a69ad;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+tr:hover {
+  background-color: #ddf;
+}
+
+/* Styling for multiple forms on a single line */
+.forms-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Allows forms to wrap on smaller screens */
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.form-section {
+  flex: 1;
+  min-width: 280px; /* Minimum width for each form */
+  margin: 10px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.flash {
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #f0ad4e;
+  background-color: #f8d7da;
+  border-radius: 5px;
+  width: 90%;
+  text-align: center;
+  color: #a94442;
+}
+
+p {
+  text-align: center;
+}
+
+p a {
+  color: #5c85d6;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}

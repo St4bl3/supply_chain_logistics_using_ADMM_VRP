@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demands</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="/">Home</a>
+      <a href="/trucks">View All Trucks</a>
+      <a href="/warehouses">View All Warehouses</a>
+      <a href="/demands">View All Demands</a>
+    </header>
+
+    <h1>Demands</h1>
+    <table>
+      <tr>
+        <th>Demand ID</th>
+        <th>Source ID</th>
+        <th>Destination ID</th>
+        <th>AC Required</th>
+        <th>Priority</th>
+        <th>Quantity</th>
+      </tr>
+      {% for index, row in demands.iterrows() %}
+      <tr>
+        <td>{{ row['DemandID'] }}</td>
+        <td>{{ row['SourceID'] }}</td>
+        <td>{{ row['DestinationID'] }}</td>
+        <td>{{ row['ACRequired'] }}</td>
+        <td>{{ row['Priority'] }}</td>
+        <td>{{ row['Quantity'] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

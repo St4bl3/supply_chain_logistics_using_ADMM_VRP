@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Warehouses</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="/">Home</a>
+      <a href="/trucks">View All Trucks</a>
+      <a href="/warehouses">View All Warehouses</a>
+      <a href="/demands">View All Demands</a>
+    </header>
+
+    <h1>Warehouses</h1>
+    <table>
+      <tr>
+        <th>Warehouse ID</th>
+        <th>X Coordinate</th>
+        <th>Y Coordinate</th>
+        <th>Details</th>
+      </tr>
+      {% for index, row in warehouses.iterrows() %}
+      <tr>
+        <td>{{ row['WarehouseID'] }}</td>
+        <td>{{ row['X'] }}</td>
+        <td>{{ row['Y'] }}</td>
+        <td>
+          <a
+            href="{{ url_for('warehouse_detail', warehouse_id=row['WarehouseID']) }}"
+            >View Details</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
